@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import Login from "./pages/Login";
 
 class App extends Component {
   render() {
-    return <p>Hello, World</p>;
+    return <Login />;
   }
 }
 
