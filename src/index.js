@@ -1,12 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-function aaa() {
-  return {
-    oi() {
-      return 4;
-    }
-  };
-}
+import { App } from "./app/";
 
 ReactDOM.render(<App />, document.getElementById("root"));
