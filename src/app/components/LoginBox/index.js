@@ -32,7 +32,7 @@ const OpenNewIcon = withStyles({
   }
 })(OpenInNew);
 
-export default () => (
+export default ({ onLogin }) => (
   <LoginBox>
     <MusicIcon color="primary" fontSize="large" />
     <Typography inline variant="h3" color="primary">
@@ -45,7 +45,7 @@ export default () => (
       dignissim, cursus ante vitae, laoreet tellus.
     </Description>
 
-    <Button color="primary" size="large" variant="contained">
+    <Button onClick={onLogin} color="primary" size="large" variant="contained">
       <OpenNewIcon fontSize="small" />
       <Typography variant="button">Login with spotify</Typography>
     </Button>
