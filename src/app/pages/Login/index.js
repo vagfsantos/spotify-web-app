@@ -1,13 +1,19 @@
 import React, { Component } from "react";
+import { Grid, withStyles } from "@material-ui/core";
+import LoginBox from "../../components/LoginBox";
+
+const FullPage = withStyles({
+  container: {
+    height: "100vh"
+  }
+})(Grid);
 
 class Login extends Component {
   render() {
     return (
-      <div>
-        <h1>mySpot</h1>
-        <p>lorem lorem lorem</p>
-        <button>login</button>
-      </div>
+      <FullPage container direction="row" justify="center" alignItems="center">
+        <LoginBox />
+      </FullPage>
     );
   }
 }
