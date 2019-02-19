@@ -20,7 +20,7 @@ export class Gateway {
 
   _onTokenExpires = response => {
     if (response.status === 401) {
-      return redirectToLogin();
+      return this._redirectToLogin();
     }
 
     return response;
