@@ -45,7 +45,13 @@ export default ({ onLogin }) => (
       dignissim, cursus ante vitae, laoreet tellus.
     </Description>
 
-    <Button onClick={onLogin} color="primary" size="large" variant="contained">
+    <Button
+      onClick={onLogin}
+      color="primary"
+      size="large"
+      variant="contained"
+      data-test="login-button"
+    >
       <OpenNewIcon fontSize="small" />
       <Typography variant="button">Login with spotify</Typography>
     </Button>
