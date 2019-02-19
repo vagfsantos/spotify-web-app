@@ -3,16 +3,16 @@ import gateway from "./gateway";
 gateway._redirectToLogin = jest.fn();
 
 describe("gateway:service", () => {
-  describe("when fetching user data", () => {
+  describe("when fetching external data", () => {
     describe("and request succesfully returns 200 OK", () => {
-      test("returns user's data", async () => {
+      test("returns the data", async () => {
         jest
           .spyOn(global, "fetch")
           .mockImplementation(() =>
             Promise.resolve({ json: () => ({ user_data: true }) })
           );
 
-        const response = await gateway.fetchUserData();
+        const response = await gateway.get("/some-path");
 
         expect(response.user_data).toBeTruthy();
       });
@@ -26,7 +26,7 @@ describe("gateway:service", () => {
             Promise.resolve({ status: 401, json: () => {} })
           );
 
-        await gateway.fetchUserData();
+        await gateway.get("/some-path");
 
         expect(gateway._redirectToLogin).toHaveBeenCalled();
       });
@@ -36,7 +36,7 @@ describe("gateway:service", () => {
       test("redirects to /login", async () => {
         jest.spyOn(global, "fetch").mockImplementation(() => Promise.reject());
 
-        await gateway.fetchUserData();
+        await gateway.get("/some-path");
 
         expect(gateway._redirectToLogin).toHaveBeenCalled();
       });

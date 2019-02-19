@@ -1,11 +1,11 @@
 import END_POINTS from "../enums/end-points";
 import auth from "./auth";
 
-const { BASE_URL, USER_PROFILE } = END_POINTS;
+const { BASE_URL } = END_POINTS;
 
 export class Gateway {
-  async fetchUserData() {
-    return fetch(`${BASE_URL}${USER_PROFILE}`, {
+  async get(path) {
+    return fetch(`${BASE_URL}${path}`, {
       headers: {
         Authorization: `Bearer ${auth.getToken()}`,
         Accept: "application/json"
