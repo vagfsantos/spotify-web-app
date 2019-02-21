@@ -1,14 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Grid, withStyles } from "@material-ui/core";
+import { FullPage } from "./index.styles";
 import LoginBox from "../../components/LoginBox";
 import { SPOTIFY_AUTH_URI } from "../../enums/auth";
-
-const FullPage = withStyles({
-  container: {
-    height: "100vh"
-  }
-})(Grid);
 
 class Login extends Component {
   render() {

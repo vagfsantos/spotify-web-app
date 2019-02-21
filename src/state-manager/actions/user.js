@@ -10,7 +10,8 @@ const getUserData = payload => {
   };
 };
 
-export const getUserDataAsync = () => async dispatch => {
-  const userData = await gateway.get(END_POINTS.USER_PROFILE);
-  dispatch(getUserData(userData));
+export const getUserDataAsync = () => dispatch => {
+  gateway
+    .get(END_POINTS.USER_PROFILE)
+    .then(userData => dispatch(getUserData(userData)));
 };
