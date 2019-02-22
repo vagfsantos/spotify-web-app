@@ -18,16 +18,19 @@ import { msToMinutes, formatArtists } from "../../helpers";
 export default ({ name, image, album, artists = [], time }) => (
   <Track>
     <ListItemAvatar>
-      <Image src={image} />
+      <Image src={image} data-test="track-image" />
     </ListItemAvatar>
 
     <ListItemText>
       <div>
         <TrackTitle>
-          {name} <sup>{msToMinutes(time)}</sup>
+          <span data-test="track-name">{name}</span>{" "}
+          <sup data-test="track-time">{msToMinutes(time)}</sup>
         </TrackTitle>
-        <AlbumName>{album}</AlbumName>
-        <ArtirtNames>{formatArtists(artists)}</ArtirtNames>
+        <AlbumName data-test="track-album">{album}</AlbumName>
+        <ArtirtNames data-test="track-artists">
+          {formatArtists(artists)}
+        </ArtirtNames>
       </div>
     </ListItemText>
 
